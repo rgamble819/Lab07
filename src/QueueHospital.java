@@ -1,46 +1,56 @@
+import java.util.LinkedList;
+import java.util.Queue;
 
-public class QueueHospital extends Hospital<PatientType>
+public class QueueHospital<PatientType> extends Hospital<PatientType>
 {
 
-    @Override
-    public void addPatient(Object patient)
+    private Queue<PatientType> patientList;
+    
+    public QueueHospital()
     {
-        // TODO Auto-generated method stub
-        
+        patientList = new LinkedList<PatientType>();
     }
 
     @Override
-    public Object nextPatient()
+    public void addPatient(PatientType patient)
     {
-        // TODO Auto-generated method stub
-        return null;
+        patientList.add(patient);
     }
 
     @Override
-    public Object treatNextPatient()
+    public PatientType nextPatient()
     {
-        // TODO Auto-generated method stub
-        return null;
+        return patientList.peek();
+    }
+
+    @Override
+    public PatientType treatNextPatient()
+    {
+        return patientList.remove();
     }
 
     @Override
     public int numPatients()
     {
-        // TODO Auto-generated method stub
-        return 0;
+        return patientList.size();
     }
 
     @Override
     public String hospitalType()
     {
-        // TODO Auto-generated method stub
-        return null;
+        return this.getClass().toGenericString().split(" ")[2];
     }
 
     @Override
     public String allPatientInfo()
     {
-        // TODO Auto-generated method stub
-        return null;
+        String result = "";
+        for(PatientType patient : patientList) 
+        {
+            result += patient.toString();
+        }
+        
+        return result;
     }
+
 }

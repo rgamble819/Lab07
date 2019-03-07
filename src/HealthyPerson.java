@@ -12,8 +12,14 @@ public class HealthyPerson extends Person
     @Override
     protected int compareToImpl(Person p)
     {
-       String healthyNameToCompare = ((HealthyPerson)p).getName(); 
-       return this.getName().compareTo(healthyNameToCompare);
+        if(p instanceof HealthyPerson) {
+            String healthyNameToCompare = ((HealthyPerson)p).getName(); 
+            return this.getName().compareTo(healthyNameToCompare);
+        }
+        else 
+        {
+            return 0;
+        }
     }
     
     public String toString() 
