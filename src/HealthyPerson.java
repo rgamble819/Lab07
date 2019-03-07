@@ -14,7 +14,7 @@ public class HealthyPerson extends Person
     {
         if(p instanceof HealthyPerson) {
             String healthyNameToCompare = ((HealthyPerson)p).getName(); 
-            return this.getName().compareTo(healthyNameToCompare);
+            return this.getName().compareToIgnoreCase(healthyNameToCompare);
         }
         else 
         {
