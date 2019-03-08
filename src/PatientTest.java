@@ -37,7 +37,7 @@ public class PatientTest
         Assert.assertEquals("Unexpected or incorrect SickPerson age", 14, sickPatient.getAge()); 
         
         // ToString Test
-        Assert.assertEquals("Unexpected or incorrect SickPerson toString", "Billy Severity level 5", sickPatient.toString()); 
+        Assert.assertEquals("Unexpected or incorrect SickPerson toString", "Billy, a 14-year old. Severity level 5", sickPatient.toString()); 
         
         // Testing compareTo
         SickPerson compare1 = new SickPerson("Andrew", 14, 2);
@@ -45,9 +45,13 @@ public class PatientTest
         SickPerson compare3 = new SickPerson("Jack", 16, 1);
         
         //Case one
-        Assert.assertEquals("Unexpected or incorrect compareTo", 1, compare1.compareTo(compare2)); 
-        Assert.assertEquals("Unexpected or incorrect compareTo", -1, compare2.compareTo(compare1)); 
+        Assert.assertEquals("Unexpected or incorrect compareTo", -1, compare1.compareTo(compare2)); 
+        Assert.assertEquals("Unexpected or incorrect compareTo", 1, compare2.compareTo(compare1)); 
         Assert.assertEquals("Unexpected or incorrect compareTo", 0, compare2.compareTo(compare3)); 
+        
+        Assert.assertEquals("Unexpected or incorrect compareTo", 1, compare2.compareTo(compare1)); 
+        Assert.assertEquals("Unexpected or incorrect compareTo", -1, compare1.compareTo(compare2)); 
+        Assert.assertEquals("Unexpected or incorrect compareTo", 0, compare3.compareTo(compare2)); 
         
         // Case two
         Person compare4 = new HealthyPerson("Rodger", 22, "Check-up");
@@ -64,7 +68,7 @@ public class PatientTest
         Assert.assertEquals("Unexpected or incorrect HealthyPerson age", 8, healthyPatient.getAge());
         
         // toStirng Test
-        Assert.assertEquals("Unexpected or incorrect HealthyPerson toString", "Drew In for Check-Up", healthyPatient.toString());
+        Assert.assertEquals("Unexpected or incorrect HealthyPerson toString", "Drew, a 8-year old. In for Check-Up", healthyPatient.toString());
         
         // testing CompareTo
         HealthyPerson compare1 = new HealthyPerson("Joe", 5, "check-up");

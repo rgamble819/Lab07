@@ -24,6 +24,6 @@ public class HealthyPerson extends Person
     
     public String toString() 
     {
-        return String.format("%s In for %s", this.getName(), this.reason);
+        return String.format("%s In for %s", super.toString(), this.reason);
     }
 }

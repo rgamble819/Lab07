@@ -18,11 +18,11 @@ public class SickPerson extends Person
             
             if(this.severity > serverityToCompare) 
             {
-                return 1;
+                return -1;
             }
             else if(this.severity < serverityToCompare) 
             {
-                return -1;
+                return 1;
             }
             else 
             {
@@ -37,7 +37,6 @@ public class SickPerson extends Person
     
     public String toString() 
     {
-        return String.format("%s Severity level %d", this.getName(), this.severity);
+        return String.format("%s Severity level %d", super.toString(), this.severity);
     }
-
 }

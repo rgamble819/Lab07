@@ -1,6 +1,6 @@
 import java.util.PriorityQueue;
 
-public class PriorityQueueHospital<PatientType> extends Hospital<PatientType>
+public class PriorityQueueHospital<PatientType extends Comparable<PatientType>> extends Hospital<PatientType>
 {
 
     private PriorityQueue<PatientType> patientList;
@@ -19,13 +19,16 @@ public class PriorityQueueHospital<PatientType> extends Hospital<PatientType>
     @Override
     public PatientType nextPatient()
     {
-        return patientList.peek();
+        PatientType next = patientList.peek();
+        return next;
     }
 
     @Override
     public PatientType treatNextPatient()
     {
-        return patientList.remove();
+        PatientType p = this.nextPatient();
+        patientList.remove(p);
+        return p;
     }
 
     @Override
@@ -37,7 +40,7 @@ public class PriorityQueueHospital<PatientType> extends Hospital<PatientType>
     @Override
     public String hospitalType()
     {
-        return this.getClass().toGenericString().split(" ")[2];
+        return this.getClass().getName();
     }
 
     @Override

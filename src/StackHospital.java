@@ -36,7 +36,7 @@ public class StackHospital<PatientType> extends Hospital<PatientType>
     @Override
     public String hospitalType()
     {
-        return this.getClass().toGenericString().split(" ")[2];
+        return this.getClass().getName();
     }
 
     @Override
