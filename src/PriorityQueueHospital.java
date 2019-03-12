@@ -19,8 +19,7 @@ public class PriorityQueueHospital<PatientType extends Comparable<PatientType>> 
     @Override
     public PatientType nextPatient()
     {
-        PatientType next = patientList.peek();
-        return next;
+        return patientList.peek();
     }
 
     @Override

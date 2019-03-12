@@ -84,7 +84,7 @@ public class HospitalTest
         
         Assert.assertEquals("Unexpected order of PriorityQueueHospital patientList", patient3, PersonPriorityQueueHos.treatNextPatient());
         Assert.assertEquals("Unexpected order of PriorityQueueHospital patientList", patient1, PersonPriorityQueueHos.treatNextPatient());
-       // Assert.assertEquals("Unexpected order of PriorityQueueHospital patientList", patient2, PersonPriorityQueueHos.treatNextPatient());
+        Assert.assertEquals("Unexpected order of PriorityQueueHospital patientList", patient2, PersonPriorityQueueHos.treatNextPatient());
         
     }
     
